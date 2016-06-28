@@ -25,21 +25,30 @@ var productionPlugins = [
   })
 ]
 
-var loaders = [{
-  test: /\.jsx?$/,
-  loader: 'babel-loader',
-  include: path.join(__dirname, 'src'),
-  exclude: /node_modules/
-}, {
-  test: /\.css$/,
-  loaders: [ 'style', 'raw' ],
-  include: path.join(__dirname, 'src')
-}]
+var loaders = [
+  {
+    test: /\.js|.jsx$/,
+    loader: 'babel-loader',
+    include: path.join(__dirname, 'src'),
+    exclude: /node_modules/
+  },
+  {
+    test: /\.ts|.tsx$/,
+    loader: 'ts-loader',
+    include: path.join(__dirname, 'src')
+  },
+  {
+    test: /\.css$/,
+    loaders: [ 'style', 'raw' ],
+    include: path.join(__dirname, 'src')
+  }
+];
 
 module.exports = {
   cache: !PRODUCTION,
   resolve: {
-    extensions: [ '', '.js' ]
+    modulesDirectories: ['node_modules'],
+    extensions: [ '', '.js', '.ts' ]
   },
   eslint: {
     configFile: path.join(__dirname, '.eslintrc'),
@@ -49,16 +58,12 @@ module.exports = {
     failOnError: false
   },
   entry: [
-    './src/index'
+    './src/index.tsx'
   ],
   devtool: 'source-map',
   plugins: plugins.concat(PRODUCTION ? productionPlugins : []),
   module: {
-    loaders: !PRODUCTION ? loaders : loaders.concat({
-      test: /\.jsx?$/,
-      loader: 'eslint-loader',
-      include: path.join(__dirname, 'src/scripts')
-    })
+    loaders: loaders
   },
   output: {
     path: path.join(__dirname, 'www'),
