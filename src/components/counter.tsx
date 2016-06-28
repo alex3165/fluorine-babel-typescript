@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { connectStore, connectActions } from 'fluorine-lib'
 
 import {
@@ -21,7 +21,7 @@ import {
   .distinctUntilChanged(),
 'counter')
 
-export default class Counter extends Component {
+export default class Counter extends React.Component {
   render() {
     const { actions, counter } = this.props
 

@@ -10,6 +10,18 @@
     },
     "react/react-dom.d.ts": {
       "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "rx/rx.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "rx/rx-lite.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "react-router/react-router.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "react-router/history.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     }
   }
 }
